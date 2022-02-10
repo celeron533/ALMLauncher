@@ -112,5 +112,10 @@ namespace ALMLauncher
                 Launch(listBoxDep.SelectedItem as DeploymentInfo);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/celeron533/ALMLauncher");
+        }
     }
 }
