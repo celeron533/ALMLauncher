@@ -117,5 +117,16 @@ namespace ALMLauncher
         {
             Process.Start("https://github.com/celeron533/ALMLauncher");
         }
+
+        private void openContainingFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFolder(listBoxDep.SelectedItem as DeploymentInfo);
+        }
+
+        private void OpenFolder(DeploymentInfo deploymentInfo)
+        {
+            if (deploymentInfo == null) return;
+            Process.Start("explorer.exe", deploymentInfo.Path);
+        }
     }
 }

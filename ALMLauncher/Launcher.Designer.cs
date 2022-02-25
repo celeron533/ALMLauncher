@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonLau = new System.Windows.Forms.Button();
             this.listBoxDep = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openContainingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLau
@@ -49,6 +53,7 @@
             // listBoxDep
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.listBoxDep, 2);
+            this.listBoxDep.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxDep.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDep.FormattingEnabled = true;
@@ -70,7 +75,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -90,6 +95,20 @@
             this.linkLabel1.Text = "https://github.com/celeron533/ALMLauncher";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openContainingFolderToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(198, 48);
+            // 
+            // openContainingFolderToolStripMenuItem
+            // 
+            this.openContainingFolderToolStripMenuItem.Name = "openContainingFolderToolStripMenuItem";
+            this.openContainingFolderToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.openContainingFolderToolStripMenuItem.Text = "Open containing folder";
+            this.openContainingFolderToolStripMenuItem.Click += new System.EventHandler(this.openContainingFolderToolStripMenuItem_Click);
+            // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +119,7 @@
             this.Text = "HP-ALM Launcher";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -110,6 +130,8 @@
         private System.Windows.Forms.ListBox listBoxDep;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem openContainingFolderToolStripMenuItem;
     }
 }
 
