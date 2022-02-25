@@ -38,9 +38,9 @@
             // buttonLau
             // 
             this.buttonLau.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLau.Location = new System.Drawing.Point(705, 403);
+            this.buttonLau.Location = new System.Drawing.Point(453, 223);
             this.buttonLau.Name = "buttonLau";
-            this.buttonLau.Size = new System.Drawing.Size(168, 51);
+            this.buttonLau.Size = new System.Drawing.Size(168, 55);
             this.buttonLau.TabIndex = 0;
             this.buttonLau.Text = "Launch";
             this.buttonLau.UseVisualStyleBackColor = true;
@@ -53,9 +53,9 @@
             this.listBoxDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDep.FormattingEnabled = true;
             this.listBoxDep.ItemHeight = 20;
-            this.listBoxDep.Location = new System.Drawing.Point(13, 12);
+            this.listBoxDep.Location = new System.Drawing.Point(13, 13);
             this.listBoxDep.Name = "listBoxDep";
-            this.listBoxDep.Size = new System.Drawing.Size(860, 385);
+            this.listBoxDep.Size = new System.Drawing.Size(608, 204);
             this.listBoxDep.TabIndex = 1;
             this.listBoxDep.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxDep_MouseDoubleClick);
             // 
@@ -70,20 +70,21 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(886, 466);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 291);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // linkLabel1
             // 
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(13, 445);
+            this.linkLabel1.Location = new System.Drawing.Point(13, 258);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(251, 12);
+            this.linkLabel1.Padding = new System.Windows.Forms.Padding(5);
+            this.linkLabel1.Size = new System.Drawing.Size(235, 23);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://github.com/celeron533/ALMLauncher";
@@ -91,9 +92,9 @@
             // 
             // Launcher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 466);
+            this.ClientSize = new System.Drawing.Size(634, 291);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Launcher";
             this.Text = "HP-ALM Launcher";
