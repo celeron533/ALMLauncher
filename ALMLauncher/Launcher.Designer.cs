@@ -31,12 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.buttonLau = new System.Windows.Forms.Button();
             this.listBoxDep = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openContainingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.launchInDebugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLau
@@ -63,6 +64,21 @@
             this.listBoxDep.Size = new System.Drawing.Size(608, 204);
             this.listBoxDep.TabIndex = 1;
             this.listBoxDep.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxDep_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openContainingFolderToolStripMenuItem,
+            this.launchInDebugToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(198, 70);
+            // 
+            // openContainingFolderToolStripMenuItem
+            // 
+            this.openContainingFolderToolStripMenuItem.Name = "openContainingFolderToolStripMenuItem";
+            this.openContainingFolderToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.openContainingFolderToolStripMenuItem.Text = "Open containing folder";
+            this.openContainingFolderToolStripMenuItem.Click += new System.EventHandler(this.openContainingFolderToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -95,19 +111,12 @@
             this.linkLabel1.Text = "https://github.com/celeron533/ALMLauncher";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // contextMenuStrip1
+            // launchInDebugToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openContainingFolderToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(198, 48);
-            // 
-            // openContainingFolderToolStripMenuItem
-            // 
-            this.openContainingFolderToolStripMenuItem.Name = "openContainingFolderToolStripMenuItem";
-            this.openContainingFolderToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.openContainingFolderToolStripMenuItem.Text = "Open containing folder";
-            this.openContainingFolderToolStripMenuItem.Click += new System.EventHandler(this.openContainingFolderToolStripMenuItem_Click);
+            this.launchInDebugToolStripMenuItem.Name = "launchInDebugToolStripMenuItem";
+            this.launchInDebugToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.launchInDebugToolStripMenuItem.Text = "Launch in Debug";
+            this.launchInDebugToolStripMenuItem.Click += new System.EventHandler(this.launchInDebugToolStripMenuItem_Click);
             // 
             // Launcher
             // 
@@ -117,9 +126,9 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Launcher";
             this.Text = "HP-ALM Launcher";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -132,6 +141,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem openContainingFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem launchInDebugToolStripMenuItem;
     }
 }
 

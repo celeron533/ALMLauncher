@@ -85,7 +85,7 @@ namespace ALMLauncher
             Launch(listBoxDep.SelectedItem as DeploymentInfo);
         }
 
-        void Launch(DeploymentInfo selected)
+        void Launch(DeploymentInfo selected, bool debug = false)
         {
             if (selected == null) return;
 
@@ -94,6 +94,11 @@ namespace ALMLauncher
                 string exePath = Path.Combine(selected.Path, "ALM-Client.exe");
 
                 string arguments = $"TDtesttypes=\"{selected.Path}\" ConfigurationFile=\"{exePath}\" PrivatePath=\"3rdParty\" URL=\"{selected.URL}\"";
+
+                if (debug)
+                {
+                    arguments += " DebugClient=true DebugStartup=true";
+                }
 
                 Process.Start(exePath, arguments);
             }
@@ -127,6 +132,11 @@ namespace ALMLauncher
         {
             if (deploymentInfo == null) return;
             Process.Start("explorer.exe", deploymentInfo.Path);
+        }
+
+        private void launchInDebugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Launch(listBoxDep.SelectedItem as DeploymentInfo, true);
         }
     }
 }
