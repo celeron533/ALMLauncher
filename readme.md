@@ -3,8 +3,8 @@ A tiny tool to launch [HP-ALM (Micro Focus)][1] client without legacy Internet E
 The ALM client layout will look better than the IE embedded one if Windows display scale is not 100%.\
 **Note:** You still need to install the HP-ALM client binaries first (or let the system admin copy the binary files from a pre-installed machine to your machine).
 
-
-![](screenshot.jpg)
+![](/screenshot2.png)
+![](/screenshot.jpg)
 
 
 ## Hints
