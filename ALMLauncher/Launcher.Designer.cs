@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Launcher));
             this.buttonLau = new System.Windows.Forms.Button();
             this.listBoxDep = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openContainingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchInDebugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.launchInDebugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             this.openContainingFolderToolStripMenuItem,
             this.launchInDebugToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(198, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(198, 48);
             // 
             // openContainingFolderToolStripMenuItem
             // 
@@ -79,6 +80,13 @@
             this.openContainingFolderToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.openContainingFolderToolStripMenuItem.Text = "Open containing folder";
             this.openContainingFolderToolStripMenuItem.Click += new System.EventHandler(this.openContainingFolderToolStripMenuItem_Click);
+            // 
+            // launchInDebugToolStripMenuItem
+            // 
+            this.launchInDebugToolStripMenuItem.Name = "launchInDebugToolStripMenuItem";
+            this.launchInDebugToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.launchInDebugToolStripMenuItem.Text = "Launch in Debug";
+            this.launchInDebugToolStripMenuItem.Click += new System.EventHandler(this.launchInDebugToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -111,19 +119,13 @@
             this.linkLabel1.Text = "https://github.com/celeron533/ALMLauncher";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // launchInDebugToolStripMenuItem
-            // 
-            this.launchInDebugToolStripMenuItem.Name = "launchInDebugToolStripMenuItem";
-            this.launchInDebugToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.launchInDebugToolStripMenuItem.Text = "Launch in Debug";
-            this.launchInDebugToolStripMenuItem.Click += new System.EventHandler(this.launchInDebugToolStripMenuItem_Click);
-            // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 291);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Launcher";
             this.Text = "HP-ALM Launcher";
             this.contextMenuStrip1.ResumeLayout(false);
