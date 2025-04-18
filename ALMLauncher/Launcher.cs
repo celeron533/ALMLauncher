@@ -85,7 +85,7 @@ namespace ALMLauncher
             Launch(listBoxDep.SelectedItem as DeploymentInfo);
         }
 
-        void Launch(DeploymentInfo selected, bool debug = false)
+        void Launch(DeploymentInfo selected, bool debug = false, bool enableAccessibility = false, bool isFrameworkOnlyMode = false)
         {
             if (selected == null) return;
 
@@ -98,6 +98,16 @@ namespace ALMLauncher
                 if (debug)
                 {
                     arguments += " DebugClient=true DebugStartup=true";
+                }
+
+                if (enableAccessibility)
+                {
+                    arguments += " EnableAccessibility=Y";
+                }
+
+                if (isFrameworkOnlyMode)
+                {
+                    arguments += " FrameworkOnlyMode=Y";
                 }
 
                 Process.Start(exePath, arguments);
