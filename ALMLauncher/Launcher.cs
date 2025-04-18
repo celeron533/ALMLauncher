@@ -80,7 +80,7 @@ namespace ALMLauncher
             public string URL { get; set; }
         }
 
-        private void buttonLau_Click(object sender, EventArgs e)
+        private void buttonLaunch_Click(object sender, EventArgs e)
         {
             Launch(listBoxDep.SelectedItem as DeploymentInfo);
         }

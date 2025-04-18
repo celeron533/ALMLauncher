@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Launcher));
-            this.buttonLau = new System.Windows.Forms.Button();
+            this.buttonLaunch = new System.Windows.Forms.Button();
             this.listBoxDep = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openContainingFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,16 +41,16 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonLau
+            // buttonLaunch
             // 
-            this.buttonLau.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLau.Location = new System.Drawing.Point(453, 223);
-            this.buttonLau.Name = "buttonLau";
-            this.buttonLau.Size = new System.Drawing.Size(168, 55);
-            this.buttonLau.TabIndex = 0;
-            this.buttonLau.Text = "Launch";
-            this.buttonLau.UseVisualStyleBackColor = true;
-            this.buttonLau.Click += new System.EventHandler(this.buttonLau_Click);
+            this.buttonLaunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLaunch.Location = new System.Drawing.Point(453, 223);
+            this.buttonLaunch.Name = "buttonLaunch";
+            this.buttonLaunch.Size = new System.Drawing.Size(168, 55);
+            this.buttonLaunch.TabIndex = 0;
+            this.buttonLaunch.Text = "Launch";
+            this.buttonLaunch.UseVisualStyleBackColor = true;
+            this.buttonLaunch.Click += new System.EventHandler(this.buttonLaunch_Click);
             // 
             // listBoxDep
             // 
@@ -94,7 +94,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.listBoxDep, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonLau, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonLaunch, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.linkLabel1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -137,7 +137,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLau;
+        private System.Windows.Forms.Button buttonLaunch;
         private System.Windows.Forms.ListBox listBoxDep;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
