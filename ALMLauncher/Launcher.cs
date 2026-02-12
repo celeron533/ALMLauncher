@@ -34,14 +34,28 @@ namespace ALMLauncher
             }
         }
 
-
+        string deploymentBasePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            @"HP\ALM-Client\");
 
         List<DeploymentInfo> GetDeployments()
         {
             List<DeploymentInfo> deploymentInfos = new List<DeploymentInfo>();
-            var deployments = Directory.GetDirectories(Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                @"HP\ALM-Client\"));
+
+            if (!Directory.Exists(deploymentBasePath))
+            {
+                if (DialogResult.Yes == MessageBox.Show(
+                    $"Deployment base path not found: {deploymentBasePath} .\nCreate the empty directory?", "Directory Not Found", MessageBoxButtons.YesNo))
+                {
+                    Directory.CreateDirectory(deploymentBasePath);
+                }
+                else
+                {
+                    return deploymentInfos;
+                }
+            }
+
+            var deployments = Directory.GetDirectories(deploymentBasePath);
 
             foreach (var dep in deployments)
             {
@@ -140,8 +154,21 @@ namespace ALMLauncher
 
         private void OpenFolder(DeploymentInfo deploymentInfo)
         {
-            if (deploymentInfo == null) return;
-            Process.Start("explorer.exe", deploymentInfo.Path);
+            if (deploymentInfo == null)
+            {
+                if (!Directory.Exists(deploymentBasePath))
+                {
+                    return;
+                }
+                else
+                {
+                    Process.Start("explorer.exe", deploymentBasePath);
+                }
+            }
+            else
+            {
+                Process.Start("explorer.exe", deploymentInfo.Path);
+            }
         }
 
         private void launchInDebugToolStripMenuItem_Click(object sender, EventArgs e)
