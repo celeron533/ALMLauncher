@@ -22,6 +22,9 @@ namespace ALMLauncher
 
         void Init()
         {
+            var versionInfo = FileVersionInfo.GetVersionInfo(Application.ExecutablePath);
+            this.Text += $" v{versionInfo.FileVersion}";
+            WriteLog($"ALM Launcher {versionInfo.FileVersion}");
             try
             {
                 var deployments = GetDeployments();
@@ -42,15 +45,19 @@ namespace ALMLauncher
         {
             List<DeploymentInfo> deploymentInfos = new List<DeploymentInfo>();
 
+            WriteLog($"Looking for deployments in: {deploymentBasePath}");
+
             if (!Directory.Exists(deploymentBasePath))
             {
                 if (DialogResult.Yes == MessageBox.Show(
                     $"Deployment base path not found: {deploymentBasePath} .\nCreate the empty directory?", "Directory Not Found", MessageBoxButtons.YesNo))
                 {
                     Directory.CreateDirectory(deploymentBasePath);
+                    WriteLog($"Created directory: {deploymentBasePath}");
                 }
                 else
                 {
+                    WriteLog($"Deployment base path not found and not created: {deploymentBasePath}");
                     return deploymentInfos;
                 }
             }
@@ -67,6 +74,7 @@ namespace ALMLauncher
                     URL = serverUrl
                 };
                 deploymentInfos.Add(deploymentInfo);
+                WriteLog($"Found deployment: Name={deploymentInfo.Name}, Path={deploymentInfo.Path}, URL={deploymentInfo.URL}");
             }
 
             return deploymentInfos;
@@ -76,8 +84,10 @@ namespace ALMLauncher
         {
             const int MAX = 256;
             string iniFilePath = Path.Combine(deploymentPath, "DSummary.ini");
+            WriteLog($"Reading server URL from: {iniFilePath}");
             StringBuilder serverUrl = new StringBuilder(MAX);
             GetPrivateProfileString("General", "ServerURL", "", serverUrl, MAX, iniFilePath);
+            WriteLog($"Read server URL: {serverUrl}");
             return serverUrl.ToString();
         }
 
@@ -124,6 +134,7 @@ namespace ALMLauncher
                     arguments += " FrameworkOnlyMode=Y";
                 }
 
+                WriteLog($"Launching ALM Client {exePath} with arguments: {arguments}");
                 Process.Start(exePath, arguments);
             }
             catch (Exception ex)
@@ -174,6 +185,20 @@ namespace ALMLauncher
         private void launchInDebugToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Launch(listBoxDep.SelectedItem as DeploymentInfo, true);
+        }
+
+        private void WriteLog(string str)
+        {
+            Console.WriteLine(str);
+            if (textBoxLog.InvokeRequired)
+            {
+                textBoxLog.Invoke(new Action<string>(WriteLog), str);
+            }
+            else
+            {
+                textBoxLog.AppendText($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.ffff}|{str}{Environment.NewLine}");
+                textBoxLog.SelectionStart = textBoxLog.Text.Length;
+            }
         }
     }
 }
