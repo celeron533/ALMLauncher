@@ -69,7 +69,7 @@ namespace ALMLauncher
                 string serverUrl = GetServerUrl(dep);
                 DeploymentInfo deploymentInfo = new DeploymentInfo
                 {
-                    Name = dep.Split('\\').Last(),
+                    Name = Path.GetFileName(dep),
                     Path = dep,
                     URL = serverUrl
                 };
@@ -82,13 +82,28 @@ namespace ALMLauncher
 
         string GetServerUrl(string deploymentPath)
         {
-            const int MAX = 256;
             string iniFilePath = Path.Combine(deploymentPath, "DSummary.ini");
             WriteLog($"Reading server URL from: {iniFilePath}");
-            StringBuilder serverUrl = new StringBuilder(MAX);
-            GetPrivateProfileString("General", "ServerURL", "", serverUrl, MAX, iniFilePath);
-            WriteLog($"Read server URL: {serverUrl}");
-            return serverUrl.ToString();
+
+            int bufferSize = 256;
+            while (true)
+            {
+                StringBuilder serverUrl = new StringBuilder(bufferSize);
+                int copied = GetPrivateProfileString("General", "ServerURL", "", serverUrl, bufferSize, iniFilePath);
+
+                if (copied < bufferSize - 1)
+                {
+                    WriteLog($"Read server URL: {serverUrl}");
+                    return serverUrl.ToString();
+                }
+
+                bufferSize *= 2;
+                if (bufferSize > 32768)
+                {
+                    WriteLog("Server URL exceeded maximum supported length while reading INI value.");
+                    return serverUrl.ToString();
+                }
+            }
         }
 
         [DllImport("kernel32")]
@@ -116,6 +131,14 @@ namespace ALMLauncher
             try
             {
                 string exePath = Path.Combine(selected.Path, "ALM-Client.exe");
+
+                if (!File.Exists(exePath))
+                {
+                    string message = $"ALM client executable was not found:{Environment.NewLine}{exePath}";
+                    WriteLog(message);
+                    MessageBox.Show(message, "Executable Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 string arguments = $"TDtesttypes=\"{selected.Path}\" ConfigurationFile=\"{exePath}\" PrivatePath=\"3rdParty\" URL=\"{selected.URL}\"";
 
